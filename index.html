@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uttarakhand Rifles Cricket Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+  <img src="team logo.png" alt="Uttarakhand Rifles Logo">
+  <h2>Uttarakhand Rifles</h2>
+  <p>Player Survey • Availability • Skills Assessment</p>
+</div>
+
+    <form name="cricket-survey" netlify netlify-honeypot="bot-field" id="cricketForm">
+  <input type="hidden" name="form-name" value="cricket-survey" />
+<p hidden>
+  <label>
+    Don’t fill this out: <input name="bot-field">
+  </label>
+</p>
+
+  <!-- Name -->
+<label>Your name *</label><br>
+<input type="text" name="name" required><br><br>
+
+<!-- Age -->
+<label>Your age *</label><br>
+<select name="age" required>
+  <option value="">Select</option>
+  <option>Under 18</option>
+  <option>18-25</option>
+  <option>26-35</option>
+  <option>36-45</option>
+  <option>45+</option>
+</select><br><br>
+
+<!-- Experience -->
+<label>Cricket experience *</label><br>
+<select name="experience" required>
+  <option>0-2 years</option>
+  <option>3-5 years</option>
+  <option>6-10 years</option>
+  <option>10+ years</option>
+</select><br><br>
+
+<!-- Role -->
+<label>Your role *</label><br>
+<input type="checkbox" name="role[]" value="Batsman"> Batsman<br>
+<input type="checkbox" name="role[]" value="Bowler"> Bowler<br>
+<input type="checkbox" name="role[]" value="All-rounder"> All-rounder<br>
+<input type="checkbox" name="role[]" value="Wicket-keeper"> Wicket-keeper<br><br>
+
+<label>Ball preference</label><br>
+<select name="ball_preference">
+  <option>White</option>
+  <option>Red</option>
+  <option>Pink</option>
+  <option>No preference</option>
+</select><br><br>
+
+<label>Batting position</label><br>
+<select name="batting_position">
+  <option>Opener</option>
+  <option>No. 3</option>
+  <option>Middle order</option>
+  <option>Lower order</option>
+  <option>No preference</option>
+</select><br><br>
+
+<label>Batting style</label><br>
+<input type="radio" name="batting_style" value="Right-handed"> Right-handed
+<input type="radio" name="batting_style" value="Left-handed"> Left-handed<br><br>
+
+<label>Strong side</label><br>
+<select name="strong_side">
+  <option>Leg side</option>
+  <option>Off side</option>
+  <option>Both</option>
+</select><br><br>
+
+<label>Batting approach</label><br>
+<input type="checkbox" name="batting_approach[]" value="Aggressive"> Aggressive<br>
+<input type="checkbox" name="batting_approach[]" value="Anchor"> Anchor<br>
+<input type="checkbox" name="batting_approach[]" value="Finisher"> Finisher<br><br>
+
+<label>Preferred shots</label><br>
+<input type="checkbox" name="preferred_shots[]" value="Drive"> Drive<br>
+<input type="checkbox" name="preferred_shots[]" value="Pull"> Pull/Hook<br>
+<input type="checkbox" name="preferred_shots[]" value="Sweep"> Sweep<br><br>
+
+<label>Face which bowlers?</label><br>
+<input type="checkbox" name="face_bowlers[]" value="Fast"> Fast<br>
+<input type="checkbox" name="face_bowlers[]" value="Spin"> Spin<br>
+<input type="checkbox" name="face_bowlers[]" value="Both"> Both<br><br>
+
+<label>Batting rating (1–5)</label><br>
+<input type="number" name="batting_rating" min="1" max="5"><br><br>
+
+<label>Bowling type</label><br>
+<input type="checkbox" name="bowling_type[]" value="Fast"> Fast<br>
+<input type="checkbox" name="bowling_type[]" value="Spin"> Spin<br>
+<input type="checkbox" name="bowling_type[]" value="Medium"> Medium<br><br>
+
+<label>Bowling phase</label><br>
+<input type="checkbox" name="bowling_phase[]" value="New ball"> New ball<br>
+<input type="checkbox" name="bowling_phase[]" value="Middle overs"> Middle overs<br>
+<input type="checkbox" name="bowling_phase[]" value="Death overs"> Death overs<br><br>
+
+<label>Bowling style</label><br>
+<select name="bowling_style">
+  <option>Economical</option>
+  <option>Wicket-taker</option>
+  <option>Both</option>
+</select><br><br>
+
+<label>Bowling variations</label><br>
+<input type="checkbox" name="bowling_variations[]" value="Yorker"> Yorker<br>
+<input type="checkbox" name="bowling_variations[]" value="Slower"> Slower<br>
+<input type="checkbox" name="bowling_variations[]" value="Swing"> Swing<br><br>
+
+<label>Overs you can bowl</label><br>
+<select name="overs">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>Not a bowler</option>
+</select><br><br>
+
+<label>Bowling accuracy (1–5)</label><br>
+<input type="number" name="bowling_accuracy" min="1" max="5"><br><br>
+
+<label>Fielding position</label><br>
+<select name="fielding_position">
+  <option>Slips</option>
+  <option>Cover</option>
+  <option>Mid-on</option>
+  <option>Boundary</option>
+</select><br><br>
+
+<label>Fielding area</label><br>
+<select name="fielding_area">
+  <option>Inner circle</option>
+  <option>Outfield</option>
+  <option>Both</option>
+</select><br><br>
+
+<label>Arm strength (1–5)</label><br>
+<input type="number" name="arm_strength" min="1" max="5"><br><br>
+
+<label>Close-in fielding?</label><br>
+<select name="close_fielding">
+  <option value="true">Yes</option>
+  <option value="false">No</option>
+</select><br><br>
+
+<label>Catching rating (1–5)</label><br>
+<input type="number" name="catching_rating" min="1" max="5"><br><br>
+
+<label>Favourite cricketer</label><br>
+<input type="text" name="favourite_cricketer"><br><br>
+
+<label>Favourite female cricketer</label><br>
+<input type="text" name="favourite_female_cricketer"><br><br>
+
+<label>Captain interest</label><br>
+<select name="captain_interest">
+  <option>Yes</option>
+  <option>No</option>
+  <option>Maybe</option>
+</select><br><br>
+
+<label>Fitness rating (1–5)</label><br>
+<input type="number" name="fitness_rating" min="1" max="5"><br><br>
+
+<label>Snack preference</label><br>
+<select name="snack">
+  <option>Samosa</option>
+  <option>Chai</option>
+  <option>Banana</option>
+  <option>Other</option>
+</select><br><br>
+
+<button type="submit">Submit</button>
+
+
+</form>
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
