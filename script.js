@@ -655,7 +655,14 @@ const payload = {
       ? formData.get("football_preferred_days")
       : "",
 
-  // FAVORITES
+    // GROUP INFO
+    "How long have you been part of this group?":
+      formData.get("group_duration"),
+
+    "Do you follow the team's CricHeroes profile/stats?":
+      formData.get("cricheroes_follow"),
+      
+      // FAVORITES
   "Who is your favorite cricketer and why?":
     formData.get("favourite_cricketer"),
 
@@ -698,7 +705,7 @@ const payload = {
   });
 
   // 🚀 Redirect IMMEDIATELY after clicking OK
-  window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSeQ5XKkdAfZckp7l92CUdc9ELpWxizaWQLqANxFXqZloYY6WA/viewform?usp=publish-editor";
+  window.location.href = "https://forms.gle/aenDwWeQjMzhu8Dh9";
 }
 
 

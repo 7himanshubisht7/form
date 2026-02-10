@@ -12,7 +12,8 @@
     <div class="header">
   <img src="team logo.png" alt="Uttarakhand Rifles Logo">
   <h2>Uttarakhand Rifles</h2>
-  <p>Player Survey • Availability • Skills Assessment</p>
+  <p>Team Survey • Preference • Availability • Skills Assessment • Jersey Order</p><br>
+  <p>Fill the form for jersey number - available for a limited time.</p>
 </div>
 
     <form name="cricket-survey" netlify netlify-honeypot="bot-field" id="cricketForm">
@@ -63,9 +64,9 @@
 
 <!-- Ball Preference -->
 <label>Which ball do you prefer playing with?</label><br>
-<input type="radio" name="ball_preference" value="White ball (limited overs)"> White ball (limited overs)<br>
-<input type="radio" name="ball_preference" value="Red ball (traditional)"> Red ball (traditional)<br>
-<input type="radio" name="ball_preference" value="Pink ball (day-night)"> Pink ball (day-night)<br>
+<input type="radio" name="ball_preference" value="White ball (limited overs)"> White ball <br>
+<input type="radio" name="ball_preference" value="Red ball (traditional)"> Red ball <br>
+<input type="radio" name="ball_preference" value="Pink ball (day-night)"> Pink ball <br>
 <input type="radio" name="ball_preference" value="No preference"> No preference<br><br>
 
 <!-- Batting Position -->
@@ -149,10 +150,9 @@
 <!-- Bowling Type -->
 <label>What is your bowling type? *</label><br>
 <input type="checkbox" name="bowling_type[]" value="Fast/Pace"> Fast/Pace<br>
-<input type="checkbox" name="bowling_type[]" value="Spin (Leg/Off)"> Spin (Leg/Off)<br>
+<input type="checkbox" name="bowling_type[]" value="Spin (Leg/Off)"> Spin/Slow<br>
 <input type="checkbox" name="bowling_type[]" value="Medium pace"> Medium pace<br>
-<input type="checkbox" name="bowling_type[]" value="No bowling"> No bowling<br>
-<input type="checkbox" name="bowling_type[]" value="Other"> Other<br><br>
+<input type="checkbox" name="bowling_type[]" value="No bowling"> Not a bowler<br>
 
 <!-- Bowling Phase -->
 <label>In which phase do you prefer bowling?</label><br>
@@ -168,7 +168,6 @@
 <input type="radio" name="bowling_style" value="Wicket-taker (aggressive)"> Wicket-taker<br>
 <input type="radio" name="bowling_style" value="Both"> Both<br>
 <input type="radio" name="bowling_style" value="Not a bowler"> Not a bowler<br>
- <input type="radio" name="bowling_style" value="Other"> Other <br>
 
 <!-- Bowling Variations -->
 <label>What variations do you have?</label><br>
@@ -196,16 +195,16 @@
 </select><br>
 
 <!-- Bowling Accuracy -->
-<label>Rate your bowling accuracy on a scale of 1-5</label><br>
+<label>Rate your bowling accuracy on a scale of (1-5), If not a bowler fill (0).</label><br>
 <input type="number" name="bowling_accuracy" min="1" max="5"
 required
   oninput="
     if (this.value === '') return;
-    if (this.value < 1) this.value = 1;
+    if (this.value < 0) this.value = 0;
     if (this.value > 5) this.value = 5;
-    this.value = this.value.replace(/[^1-5]/g, '');
+    this.value = this.value.replace(/[^0-5]/g, '');
   "
-  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '0' && event.key <= '5');"
 /><br>
 
 <!-- Fielding Position   correction -->
@@ -382,9 +381,9 @@ required
 </label>
 
 <label style="display:block; margin-bottom:1.5rem;">
-  <span style="display:block; font-weight:500; margin-bottom:0.25rem;">
+  <label style="display:block; font-weight:500; margin-bottom:0.25rem;">
     Support needed:
-  </span>
+  </label>
   <input
     type="text"
     name="support_needed"
@@ -522,6 +521,24 @@ required
   <input type="text" name="football_preferred_days">
 </label>
 <br>
+
+<!-- Group Duration -->
+<label>How long have you been part of this group? *</label><br>
+<select name="group_duration" required>
+  <option value="">Select</option>
+  <option>Less than 6 months</option>
+  <option>6-12 months</option>
+  <option>1-2 years</option>
+  <option>2+ years</option>
+</select><br><br>
+
+<!-- CricHeroes Follow -->
+<label>Do you follow the team's CricHeroes profile/stats?</label><br>
+<input type="radio" name="cricheroes_follow" value="Yes"> Yes<br>
+<input type="radio" name="cricheroes_follow" value="No"> No<br>
+<input type="radio" name="cricheroes_follow" value="What the fuck is CricHeroes">
+What the fuck is CricHeroes<br><br>
+
 
 <!-- Favourite Cricketer -->
 <label>Who is your favorite cricketer?</label><br>
