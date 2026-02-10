@@ -19,7 +19,7 @@
   <input type="hidden" name="form-name" value="cricket-survey" />
 <p hidden>
   <label>
-    Don’t fill this out: <input name="bot-field">
+    Don't fill this out: <input name="bot-field">
   </label>
 </p>
 
@@ -39,8 +39,9 @@
 </select><br><br>
 
 <!-- Experience -->
-<label>Cricket experience *</label><br>
+<label>How many years of cricket experience do you have? *</label><br>
 <select name="experience" required>
+  <option value="">Select</option>
   <option>0-2 years</option>
   <option>3-5 years</option>
   <option>6-10 years</option>
@@ -48,142 +49,522 @@
 </select><br><br>
 
 <!-- Role -->
-<label>Your role *</label><br>
+<label>Are you a batsman, bowler, all-rounder, or wicket-keeper? *</label><br>
 <input type="checkbox" name="role[]" value="Batsman"> Batsman<br>
 <input type="checkbox" name="role[]" value="Bowler"> Bowler<br>
 <input type="checkbox" name="role[]" value="All-rounder"> All-rounder<br>
-<input type="checkbox" name="role[]" value="Wicket-keeper"> Wicket-keeper<br><br>
+<input type="checkbox" name="role[]" value="Wicket-keeper"> Wicket-keeper<br>
+<label>
+  <input type="checkbox" name="role[]" value="Other">
+  Other
+  <input type="text" name="role_other">
+</label>
+<br>
 
-<label>Ball preference</label><br>
-<select name="ball_preference">
-  <option>White</option>
-  <option>Red</option>
-  <option>Pink</option>
-  <option>No preference</option>
-</select><br><br>
+<!-- Ball Preference -->
+<label>Which ball do you prefer playing with?</label><br>
+<input type="radio" name="ball_preference" value="White ball (limited overs)"> White ball (limited overs)<br>
+<input type="radio" name="ball_preference" value="Red ball (traditional)"> Red ball (traditional)<br>
+<input type="radio" name="ball_preference" value="Pink ball (day-night)"> Pink ball (day-night)<br>
+<input type="radio" name="ball_preference" value="No preference"> No preference<br><br>
 
-<label>Batting position</label><br>
-<select name="batting_position">
+<!-- Batting Position -->
+<label>What batting position do you prefer? *</label><br>
+<select name="batting_position" required>
+  <option value="">Select</option>
   <option>Opener</option>
   <option>No. 3</option>
-  <option>Middle order</option>
-  <option>Lower order</option>
+  <option>Middle order (4-6)</option>
+  <option>Lower order (7-11)</option>
   <option>No preference</option>
 </select><br><br>
 
-<label>Batting style</label><br>
-<input type="radio" name="batting_style" value="Right-handed"> Right-handed
-<input type="radio" name="batting_style" value="Left-handed"> Left-handed<br><br>
+<!-- Batting Style -->
+<label>What is your batting style? *</label><br>
+<input type="radio" name="batting_style" value="Right-handed" required> Right-handed
+<input type="radio" name="batting_style" value="Left-handed" required> Left-handed<br><br>
 
-<label>Strong side</label><br>
-<select name="strong_side">
-  <option>Leg side</option>
-  <option>Off side</option>
-  <option>Both</option>
-</select><br><br>
+<!-- Strong Side -->
+<label>What's your strong side?</label><br>
+<input type="radio" name="strong_side" value="Leg side"> Leg side<br>
+<input type="radio" name="strong_side" value="Off side"> Off side<br>
+<input type="radio" name="strong_side" value="Both equally"> Both equally<br>
+<input type="radio" name="strong_side" value="No preference"> No preference<br><br>
 
-<label>Batting approach</label><br>
-<input type="checkbox" name="batting_approach[]" value="Aggressive"> Aggressive<br>
-<input type="checkbox" name="batting_approach[]" value="Anchor"> Anchor<br>
-<input type="checkbox" name="batting_approach[]" value="Finisher"> Finisher<br><br>
+<!-- Batting Approach -->
+<label>What's your batting approach?</label><br>
+<input type="checkbox" name="batting_approach[]" value="Aggressive hitter (power play)"> Aggressive hitter<br>
+<input type="checkbox" name="batting_approach[]" value="Rotator (strike rotation)"> Rotator<br>
+<input type="checkbox" name="batting_approach[]" value="Anchor (defensive)"> Anchor<br>
+<input type="checkbox" name="batting_approach[]" value="Finisher (late acceleration)"> Finisher<br>
+<label>
+  <input type="checkbox" name="batting_approach[]" value="Other">
+  Other
+  <input type="text" name="batting_approach_other">
+</label>
+<br>
 
-<label>Preferred shots</label><br>
+<!-- Preferred Shots -->
+<label>Preferred shot types?</label><br>
 <input type="checkbox" name="preferred_shots[]" value="Drive"> Drive<br>
-<input type="checkbox" name="preferred_shots[]" value="Pull"> Pull/Hook<br>
-<input type="checkbox" name="preferred_shots[]" value="Sweep"> Sweep<br><br>
+<input type="checkbox" name="preferred_shots[]" value="Pull/Hook"> Pull/Hook<br>
+<input type="checkbox" name="preferred_shots[]" value="Cut"> Cut<br>
+<input type="checkbox" name="preferred_shots[]" value="Sweep"> Sweep<br>
+<input type="checkbox" name="preferred_shots[]" value="Six-hitting"> Slog<br>
+<label>
+  <input type="checkbox" name="preferred_shots[]" value="Other">
+  Other
+  <input type="text" name="preferred_shots_other">
+</label>
+<br>
 
-<label>Face which bowlers?</label><br>
+<!-- Face Bowlers -->
+<label>Do you prefer facing fast bowlers or spinners?</label><br>
 <input type="checkbox" name="face_bowlers[]" value="Fast"> Fast<br>
 <input type="checkbox" name="face_bowlers[]" value="Spin"> Spin<br>
-<input type="checkbox" name="face_bowlers[]" value="Both"> Both<br><br>
+<input type="checkbox" name="face_bowlers[]" value="Both"> Both<br>
+<input type="checkbox" name="face_bowlers[]" value="Neither"> Neither<br>
 
-<label>Batting rating (1–5)</label><br>
-<input type="number" name="batting_rating" min="1" max="5"><br><br>
+<!-- Batting Rating -->
+<label>Rate your batting skills on a scale of 1-5 (1=beginner, 5=expert) *</label><br>
+<!-- <input type="number" name="batting_rating" min="1" max="5" required><br><br> -->
 
-<label>Bowling type</label><br>
-<input type="checkbox" name="bowling_type[]" value="Fast"> Fast<br>
-<input type="checkbox" name="bowling_type[]" value="Spin"> Spin<br>
-<input type="checkbox" name="bowling_type[]" value="Medium"> Medium<br><br>
+<input
+  type="number"
+  name="batting_rating"
+  min="1"
+  max="5"
+  required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/>
 
-<label>Bowling phase</label><br>
-<input type="checkbox" name="bowling_phase[]" value="New ball"> New ball<br>
-<input type="checkbox" name="bowling_phase[]" value="Middle overs"> Middle overs<br>
-<input type="checkbox" name="bowling_phase[]" value="Death overs"> Death overs<br><br>
+<br>
 
-<label>Bowling style</label><br>
-<select name="bowling_style">
-  <option>Economical</option>
-  <option>Wicket-taker</option>
-  <option>Both</option>
-</select><br><br>
+<!-- Bowling Type -->
+<label>What is your bowling type? *</label><br>
+<input type="checkbox" name="bowling_type[]" value="Fast/Pace"> Fast/Pace<br>
+<input type="checkbox" name="bowling_type[]" value="Spin (Leg/Off)"> Spin (Leg/Off)<br>
+<input type="checkbox" name="bowling_type[]" value="Medium pace"> Medium pace<br>
+<input type="checkbox" name="bowling_type[]" value="No bowling"> No bowling<br>
+<input type="checkbox" name="bowling_type[]" value="Other"> Other<br><br>
 
-<label>Bowling variations</label><br>
+<!-- Bowling Phase -->
+<label>In which phase do you prefer bowling?</label><br>
+<input type="checkbox" name="bowling_phase[]" value="New ball (opening)"> New ball<br>
+<input type="checkbox" name="bowling_phase[]" value="Middle overs (control)"> Middle overs<br>
+<input type="checkbox" name="bowling_phase[]" value="Death overs (pressure)"> Death overs<br>
+<input type="checkbox" name="bowling_phase[]" value="Any"> Any<br>
+<input type="checkbox" name="bowling_phase[]" value="Not a bowler"> Not a bowler<br>
+
+<!-- Bowling Style -->
+<label>What's your bowling type?</label><br>
+<input type="radio" name="bowling_style" value="Economical (dot balls focus)"> Economical<br>
+<input type="radio" name="bowling_style" value="Wicket-taker (aggressive)"> Wicket-taker<br>
+<input type="radio" name="bowling_style" value="Both"> Both<br>
+<input type="radio" name="bowling_style" value="Not a bowler"> Not a bowler<br>
+ <input type="radio" name="bowling_style" value="Other"> Other <br>
+
+<!-- Bowling Variations -->
+<label>What variations do you have?</label><br>
 <input type="checkbox" name="bowling_variations[]" value="Yorker"> Yorker<br>
-<input type="checkbox" name="bowling_variations[]" value="Slower"> Slower<br>
-<input type="checkbox" name="bowling_variations[]" value="Swing"> Swing<br><br>
+<input type="checkbox" name="bowling_variations[]" value="Slower ball"> Slower ball<br>
+<input type="checkbox" name="bowling_variations[]" value="Bouncer"> Bouncer<br>
+<input type="checkbox" name="bowling_variations[]" value="Googly/Doosra"> Googly/Doosra<br>
+<input type="checkbox" name="bowling_variations[]" value="Swing/Seam"> Swing/Seam<br>
+<label>
+  <input type="checkbox" name="bowling_variations[]" value="Other">
+  Other
+  <input type="text" name="bowling_variations_other">
+</label>
+<br>
 
-<label>Overs you can bowl</label><br>
-<select name="overs">
+<!-- Overs -->
+<label>How many overs can you bowl comfortably in a match? *</label><br>
+<select name="overs" required>
+  <option value="">Select</option>
   <option>1</option>
   <option>2</option>
   <option>3</option>
   <option>4</option>
   <option>Not a bowler</option>
-</select><br><br>
+</select><br>
 
-<label>Bowling accuracy (1–5)</label><br>
-<input type="number" name="bowling_accuracy" min="1" max="5"><br><br>
+<!-- Bowling Accuracy -->
+<label>Rate your bowling accuracy on a scale of 1-5</label><br>
+<input type="number" name="bowling_accuracy" min="1" max="5"
+required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/><br>
 
-<label>Fielding position</label><br>
-<select name="fielding_position">
-  <option>Slips</option>
-  <option>Cover</option>
-  <option>Mid-on</option>
-  <option>Boundary</option>
-</select><br><br>
+<!-- Fielding Position   correction -->
+<label>Which fielding position do you prefer? *</label><br>
+<select name="fielding_position" required>
+  <option value="">Select</option>
+  <option>Slips/Gully</option>
+  <option>Point/Cover</option>
+  <option>Mid-on/Mid-off</option>
+  <option>Fine leg/Third man</option>
+  <option>Wicket-keeper</option>
+  <option>No preference</option>
+</select><br>
 
-<label>Fielding area</label><br>
-<select name="fielding_area">
-  <option>Inner circle</option>
-  <option>Outfield</option>
-  <option>Both</option>
-</select><br><br>
+<!-- Fielding Area -->
+<label>Where do you prefer fielding?</label><br>
+<input type="radio" name="fielding_area" value="Inner circle (close-in)"> Inner circle (close-in)<br>
+<input type="radio" name="fielding_area" value="Outfield (boundary)"> Outfield (boundary)<br>
+<input type="radio" name="fielding_area" value="Both"> Both<br>
+<input type="radio" name="fielding_area" value="No preference"> No preference<br>
 
-<label>Arm strength (1–5)</label><br>
-<input type="number" name="arm_strength" min="1" max="5"><br><br>
+<!-- Arm Strength -->
+<label>Rate your throwing arm strength (for outfield throws)? (1=weak, 5=strong)</label><br>
+<input type="number" name="arm_strength" min="1" max="5"
+required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/><br>
 
-<label>Close-in fielding?</label><br>
-<select name="close_fielding">
+<!-- Close-in Fielding -->
+<label>Are you comfortable with close-in fielding (e.g., silly point)? *</label><br>
+<select name="close_fielding" required>
+  <option value="">Select</option>
   <option value="true">Yes</option>
   <option value="false">No</option>
-</select><br><br>
+</select><br>
 
-<label>Catching rating (1–5)</label><br>
-<input type="number" name="catching_rating" min="1" max="5"><br><br>
+<!-- Catching Rating -->
+<label>Rate your catching/throwing skills on a scale of 1-5 *</label><br>
+<input type="number" name="catching_rating" min="1" max="5" required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/><br>
 
-<label>Favourite cricketer</label><br>
-<input type="text" name="favourite_cricketer"><br><br>
+<!-- Match Attendance -->
+<label>How frequently do you attend matches? *</label><br>
+<select name="match_attendance" required>
+  <option value="">Select</option>
+  <option>Always (every match)</option>
+  <option>Most of the time (80%+)</option>
+  <option>Occasionally (once a month)</option>
+  <option>Rarely (once in 2-3 months)</option>
+  <option>Never</option>
+</select><br>
 
-<label>Favourite female cricketer</label><br>
-<input type="text" name="favourite_female_cricketer"><br><br>
+<!-- Matches Per Month -->
+<label>How many matches per month are you available for? *</label><br>
+<select name="matches_per_month" required>
+  <option value="">Select</option>
+  <option>0-1</option>
+  <option>2-3</option>
+  <option>4+</option>
+  <option>Not sure</option>
+</select><br>
 
-<label>Captain interest</label><br>
+<!-- Practice Commitment -->
+<label>Are you willing to commit to regular practice sessions (e.g., weekly)?</label><br>
+<input type="radio" name="practice_commitment" value="Yes"> Yes<br>
+<input type="radio" name="practice_commitment" value="No"> No<br>
+<input type="radio" name="practice_commitment" value="Maybe"> Maybe<br>
+<label>
+  If No, please explain:
+  <input type="text" name="practice_commitment_reason">
+</label><br>
+
+<!-- Notice Period -->
+<label>What is your preferred notice period for match scheduling?</label><br>
+<select name="notice_period">
+  <option value="">Select</option>
+  <option>1 week in advance</option>
+  <option>2-3 days</option>
+  <option>Same day</option>
+  <option>Doesn't matter</option>
+</select><br>
+
+<!-- Player Category -->
+<label style="display:block; font-weight:600; margin-bottom:0.5rem;">
+  Which category do you see yourself in? *
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="radio" name="player_category" value="Active/Regular Player -- always available" required>
+  Active/Regular Player -- always available
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="radio" name="player_category" value="Occasional/Backup Player -- come when possible" required>
+  Occasional/Backup Player -- come when possible
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; cursor:pointer;">
+  <input type="radio" name="player_category" value="Not sure" required>
+  Not sure
+</label>
+
+<!-- If Not Regular - Reason -->
+<label style="display:block; font-weight:600; margin:1rem 0 0.5rem;">
+  If you're not regular, what's the main reason?
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Work commitments">
+  Work commitments
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Family reasons">
+  Family reasons
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Travel">
+  Travel
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Lack of interest">
+  Lack of interest
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Fitness issues">
+  Fitness issues
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Saadi ho gayi hai">
+  Saadi ho gayi hai
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; cursor:pointer;">
+  <input type="checkbox" name="not_regular_reason[]" value="Other">
+  Other
+  <input
+    type="text"
+    name="not_regular_reason_other"
+    style="margin-left:0.5rem; flex:1; padding:0.25rem 0.4rem;"
+  >
+</label>
+
+<!-- Move to Active Category -->
+<label style="display:block; font-weight:600; margin:1rem 0 0.5rem;">
+  Would you like to move to the active category?
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; cursor:pointer;">
+  <input type="radio" name="move_to_active" value="Yes">
+  Yes
+</label>
+
+<label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; cursor:pointer;">
+  <input type="radio" name="move_to_active" value="No">
+  No
+</label>
+
+<label style="display:block; margin-bottom:1.5rem;">
+  <span style="display:block; font-weight:500; margin-bottom:0.25rem;">
+    Support needed:
+  </span>
+  <input
+    type="text"
+    name="support_needed"
+    placeholder="e.g., flexible timings, reminders"
+    style="width:100%; padding:0.4rem 0.5rem;"
+  >
+</label>
+
+
+
+<!-- Availability Days -->
+<label>Availability days? *</label><br>
+<input type="checkbox" name="availability_days[]" value="Saturday"> Saturday<br>
+<input type="checkbox" name="availability_days[]" value="Sunday"> Sunday<br>
+<input type="checkbox" name="availability_days[]" value="Both"> Both<br>
+<label>
+  <input type="checkbox" name="availability_days[]" value="Weekdays">
+  Weekdays
+  <input type="text" name="availability_weekdays" placeholder="specify">
+</label>
+<br>
+<input type="checkbox" name="availability_days[]" value="None"> None<br>
+
+<!-- Preferred Location -->
+<label>Preferred location in Delhi NCR? *</label><br>
+<input type="radio" name="preferred_location" value="Noida" required> Noida<br>
+<input type="radio" name="preferred_location" value="Delhi" required> Delhi<br>
+<input type="radio" name="preferred_location" value="Gurgaon" required> Gurgaon<br>
+<input type="radio" name="preferred_location" value="Any" required> Any<br>
+<label>
+  <input type="radio" name="preferred_location" value="Other" required>
+  Other
+  <input type="text" name="preferred_location_other">
+</label>
+<br>
+
+<!-- Preferred Time Slot -->
+<label>Preferred slot/time? *</label><br>
+<input type="checkbox" name="preferred_time[]" value="Early morning (6-9 AM)"> Early morning (6-9 AM)<br>
+<input type="checkbox" name="preferred_time[]" value="Day (10 AM-4 PM)"> Day (10 AM-2 PM)<br>
+<input type="checkbox" name="preferred_time[]" value="Evening (5-8 PM)"> Evening (2-6 PM)<br>
+<input type="checkbox" name="preferred_time[]" value="Night (after 8 PM)"> Night (after 8 PM)<br>
+<input type="checkbox" name="preferred_time[]" value="Day-Night (full day)"> Day-Night (4-8 PM)<br>
+<input type="checkbox" name="preferred_time[]" value="No preference"> No preference<br>
+
+<!-- Tournament Role -->
+<label>In corporate tournaments like CricHeroes, what role do you want in the team?</label><br>
+<input type="checkbox" name="tournament_role[]" value="Core player"> Core player<br>
+<input type="checkbox" name="tournament_role[]" value="Substitute"> Substitute<br>
+<input type="checkbox" name="tournament_role[]" value="Captain/Vice-captain"> Captain/Vice-captain<br>
+<input type="checkbox" name="tournament_role[]" value="Scorer/Manager"> Manager<br>
+<!-- correction -->
+<input type="checkbox" name="tournament_role[]" value="Any"> Any<br>
+
+<!-- Reliability Rating -->
+<label>How do you rate your reliability for team events (1-5 scale: 1=unreliable, 5=always there)? *</label><br>
+<input type="number" name="reliability_rating" min="1" max="5" required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/><br>
+
+<!-- Suggestions for Occasional Players -->
+<label>Any suggestions for making the team more inclusive for occasional players?</label><br>
+<textarea name="inclusive_suggestions" rows="3"></textarea><br>
+
+<!-- Preferred Tournament Type -->
+<label>Preferred tournament type on CricHeroes?</label><br>
+<input type="checkbox" name="tournament_type[]" value="League"> League<br>
+<input type="checkbox" name="tournament_type[]" value="Knockout"> Knockout<br>
+<input type="checkbox" name="tournament_type[]" value="Friendly"> Friendly<br>
+<input type="checkbox" name="tournament_type[]" value="Corporate-specific"> Corporate-specific<br>
+
+<!-- Strengths -->
+<label>What are your strengths in the team?</label><br>
+<input type="checkbox" name="strengths[]" value="Batting power"> Batting power<br>
+<input type="checkbox" name="strengths[]" value="Bowling variations"> Bowling variations<br>
+<input type="checkbox" name="strengths[]" value="Fielding agility"> Fielding agility<br>
+<input type="checkbox" name="strengths[]" value="Leadership"> Leadership<br>
+<label>
+  <input type="checkbox" name="strengths[]" value="Other">
+  Other
+  <input type="text" name="strengths_other">
+</label>
+<br>
+
+<!-- Weaknesses -->
+<label>Any weaknesses you'd like to improve?</label><br>
+<textarea name="weaknesses" rows="3"></textarea><br>
+
+<!-- Team Improvement Suggestions -->
+<label>Suggestions for team improvement?</label><br>
+<textarea name="team_improvement" rows="3"></textarea><br>
+
+<!-- Fitness Management -->
+<label>What do you do for fitness/weight management?</label><br>
+<input type="checkbox" name="fitness[]" value="Gym"> Gym<br>
+<input type="checkbox" name="fitness[]" value="Running/Jogging"> Running/Jogging<br>
+<input type="checkbox" name="fitness[]" value="Yoga"> Yoga<br>
+<input type="checkbox" name="fitness[]" value="Diet control"> Diet control<br>
+<input type="checkbox" name="fitness[]" value="Home workouts"> Home workouts<br>
+<input type="checkbox" name="fitness[]" value="Nothing specific"> Nothing specific<br>
+<label>
+  <input type="checkbox" name="fitness[]" value="Other">
+  Other
+  <input type="text" name="fitness_other">
+</label>
+<br>
+
+<!-- Other Sports -->
+<label>What other sports do you follow or like besides cricket?</label><br>
+<input type="checkbox" name="other_sports[]" value="Football"> Football<br>
+<input type="checkbox" name="other_sports[]" value="Basketball"> Basketball<br>
+<input type="checkbox" name="other_sports[]" value="Tennis"> Tennis<br>
+<input type="checkbox" name="other_sports[]" value="Badminton"> Badminton<br>
+<input type="checkbox" name="other_sports[]" value="None"> None<br>
+<label>
+  <input type="checkbox" name="other_sports[]" value="Other">
+  Other
+  <input type="text" name="other_sports_other">
+</label>
+<br>
+
+<!-- Football Games Interest -->
+<label>If the team organizes weekend football games sometimes, would you be available/interested?</label><br>
+<input type="radio" name="football_interest" value="Yes"> Yes<br>
+<input type="radio" name="football_interest" value="No"> No<br>
+<input type="radio" name="football_interest" value="Maybe"> Maybe<br>
+<label>
+  Preferred days:
+  <input type="text" name="football_preferred_days">
+</label>
+<br>
+
+<!-- Favourite Cricketer -->
+<label>Who is your favorite cricketer?</label><br>
+<input type="text" name="favourite_cricketer"><br>
+
+<!-- Favourite Female Cricketer -->
+<label>Who's your favourite female cricketer?</label><br>
+<input type="text" name="favourite_female_cricketer"><br>
+
+<!-- Captain Interest -->
+<label>Would you like to captain the team someday?</label><br>
 <select name="captain_interest">
+  <option value="">Select</option>
   <option>Yes</option>
   <option>No</option>
   <option>Maybe</option>
-</select><br><br>
+</select><br>
 
-<label>Fitness rating (1–5)</label><br>
-<input type="number" name="fitness_rating" min="1" max="5"><br><br>
+<!-- Fitness Level -->
+<label>Rate your fitness level for cricket (1-5)</label><br>
+<input type="number" name="fitness_rating" min="1" max="5" required
+  oninput="
+    if (this.value === '') return;
+    if (this.value < 1) this.value = 1;
+    if (this.value > 5) this.value = 5;
+    this.value = this.value.replace(/[^1-5]/g, '');
+  "
+  onkeydown="return event.key === 'Backspace' || event.key === 'Delete' || (event.key >= '1' && event.key <= '5');"
+/><br>
 
-<label>Snack preference</label><br>
+<!-- Favorite Snack -->
+<label>Favorite team snack during breaks?</label><br>
 <select name="snack">
+  <option value="">Select</option>
   <option>Samosa</option>
   <option>Chai</option>
+  <option>Cigarette</option>
   <option>Banana</option>
+  <option>Beer</option>
+  <option>Charas</option>
   <option>Other</option>
-</select><br><br>
+</select>
+<input type="text" name="snack_other" placeholder="specify if other">
 
 <button type="submit">Submit</button>
 

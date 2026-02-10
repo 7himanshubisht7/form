@@ -1,155 +1,702 @@
+/* ========================================
+   UTTARAKHAND RIFLES CRICKET SURVEY
+   Enhanced Team-Branded CSS
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* ===== CSS VARIABLES ===== */
 :root {
-  --primary-red: #b11226;
-  --primary-blue: #0b2a4a;
-  --light-bg: #f4f6f8;
-  --card-bg: #ffffff;
-  --border-color: #e5e7eb;
+  /* Team Logo Colors */
+  --team-navy: #0a1e3d;
+  --team-red: #c41e3a;
+  --team-blue: #5ba3d0;
+  --team-cream: #e8e5dc;
+  --team-maroon: #6b1c28;
+  --team-light-blue: #87ceeb;
+  
+  /* Primary Colors */
+  --primary: var(--team-navy);
+  --primary-dark: #051225;
+  --primary-light: #1a3a5f;
+  --secondary: var(--team-red);
+  --secondary-dark: #9a1730;
+  --accent: var(--team-blue);
+  
+  /* Neutral Colors */
+  --white: #ffffff;
+  --cream: var(--team-cream);
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  
+  /* Semantic Colors */
+  --success: #10b981;
+  --error: var(--team-red);
+  
+  /* Spacing */
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(10, 30, 61, 0.05);
+  --shadow: 0 1px 3px 0 rgba(10, 30, 61, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(10, 30, 61, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(10, 30, 61, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(10, 30, 61, 0.2);
+  
+  /* Transitions */
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
+/* ===== GLOBAL RESET ===== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== BODY ===== */
 body {
-  background: linear-gradient(
-    135deg,
-    #f4f6f8 0%,
-    #eef2f7 100%
-  );
-  padding: 20px;
-  color: #111827;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-900);
+  background: linear-gradient(135deg, var(--team-navy) 0%, var(--team-maroon) 50%, var(--team-red) 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: var(--space-8) var(--space-4);
 }
 
-/* ---------- HEADER ---------- */
+/* Subtle background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle at 20% 30%, rgba(93, 163, 208, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(196, 30, 58, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ===== HEADER ===== */
 .header {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto var(--space-12);
   text-align: center;
-  margin-bottom: 25px;
+  background: linear-gradient(135deg, var(--team-navy) 0%, var(--team-maroon) 100%);
+  color: var(--cream);
+  padding: var(--space-10) var(--space-6);
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--team-red);
+  box-shadow: 
+    var(--shadow-xl),
+    0 0 30px rgba(196, 30, 58, 0.2);
+  z-index: 1;
 }
 
 .header img {
-  width: 110px;
-  margin-bottom: 10px;
+  max-width: 140px;
+  height: auto;
+  margin-bottom: var(--space-6);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 .header h2 {
-  margin: 0;
-  color: var(--primary-blue);
-  letter-spacing: 1px;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cream);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header p {
-  color: #6b7280;
-  margin-top: 6px;
-  font-size: 14px;
-}
-
-/* ---------- FORM CARD ---------- */
-form {
-  max-width: 900px;
-  margin: auto;
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 14px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-/* ---------- SECTIONS ---------- */
-.section {
-  margin-top: 35px;
-  padding-top: 20px;
-  border-top: 2px dashed var(--border-color);
-}
-
-.section h3 {
-  margin-bottom: 18px;
-  color: var(--primary-red);
-  font-size: 18px;
-  letter-spacing: 0.5px;
-}
-
-/* ---------- LABELS & INPUTS ---------- */
-label {
+  font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 600;
-  display: block;
-  margin-bottom: 6px;
-  color: #1f2937;
+  color: var(--team-light-blue);
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* ===== FORM CONTAINER ===== */
+form {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: var(--space-12) var(--space-8);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Hidden honeypot field */
+form p[hidden] {
+  display: none;
+}
+
+/* ===== FORM LABELS ===== */
+form > label,
+label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--team-navy);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  position: relative;
+  padding-left: var(--space-5);
+}
+
+form > label:first-of-type {
+  margin-top: 0;
+}
+
+/* Accent bar for main labels */
+form > label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: var(--team-red);
+  border-radius: 2px;
+}
+
+/* Required asterisk */
+form > label:has(+ input[required])::after,
+form > label:has(+ select[required])::after {
+  content: ' *';
+  color: var(--team-red);
+  font-weight: 700;
+}
+
+/* ===== TEXT INPUTS ===== */
 input[type="text"],
+input[type="email"],
 input[type="number"],
 select,
 textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  font-size: 14px;
-  transition: all 0.2s ease;
+  padding: var(--space-4);
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  margin-bottom: var(--space-2);
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 2px rgba(11, 42, 74, 0.15);
+  background: var(--white);
+  border-color: var(--team-blue);
+  box-shadow: 0 0 0 3px rgba(93, 163, 208, 0.1);
 }
 
-/* ---------- CHECKBOX / RADIO ---------- */
-.checkbox-group,
-.radio-group {
-  margin-bottom: 18px;
+input[type="text"]:hover:not(:focus),
+input[type="email"]:hover:not(:focus),
+input[type="number"]:hover:not(:focus),
+select:hover:not(:focus),
+textarea:hover:not(:focus) {
+  border-color: var(--gray-400);
 }
 
-.checkbox-group label,
-.radio-group label {
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
+::placeholder {
+  color: var(--gray-400);
+  opacity: 1;
+}
+
+/* ===== TEXTAREA ===== */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* ===== SELECT DROPDOWN (SIMPLIFIED) ===== */
+select {
   cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234b5563'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-4) center;
+  background-size: 20px;
+  padding-right: var(--space-12);
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-  transform: scale(1.1);
-  accent-color: var(--primary-red);
+select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%235ba3d0'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
 }
 
-/* ---------- BUTTON ---------- */
-button {
-  background: linear-gradient(
-    135deg,
-    var(--primary-red),
-    var(--primary-blue)
-  );
-  color: white;
-  padding: 14px;
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
+/* ===== NUMBER INPUTS ===== */
+input[type="number"] {
+  max-width: 120px;
+  text-align: center;
   font-weight: 600;
+}
+
+/* Remove spinner arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ===== RADIO BUTTONS ===== */
+input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-400);
+  border-radius: 50%;
+  margin-right: var(--space-3);
   cursor: pointer;
-  letter-spacing: 0.5px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+input[type="radio"]:hover {
+  border-color: var(--team-blue);
 }
 
-/* ---------- MOBILE ---------- */
-@media (max-width: 600px) {
+input[type="radio"]:checked {
+  border-color: var(--team-red);
+  background: var(--team-red);
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+label:has(input[type="radio"]) {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  margin: 0 var(--space-3) var(--space-2) 0;
+  padding-left: var(--space-3);
+  font-weight: 500;
+  color: var(--gray-700);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  user-select: none;
+}
+
+/* Remove accent bar from radio/checkbox labels */
+label:has(input[type="radio"])::before {
+  display: none;
+}
+
+label:has(input[type="radio"]):hover {
+  background: var(--gray-50);
+}
+
+label:has(input[type="radio"]:checked) {
+  color: var(--team-red);
+  font-weight: 600;
+  background: rgba(196, 30, 58, 0.05);
+}
+
+/* ===== CHECKBOXES ===== */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-400);
+  border-radius: var(--radius-sm);
+  margin-right: var(--space-3);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--team-blue);
+}
+
+input[type="checkbox"]:checked {
+  background: var(--team-navy);
+  border-color: var(--team-navy);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+label:has(input[type="checkbox"]) {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--space-2) var(--space-3);
+  padding-left: var(--space-3);
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+  color: var(--gray-700);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  user-select: none;
+}
+
+/* Remove accent bar from radio/checkbox labels */
+label:has(input[type="checkbox"])::before {
+  display: none;
+}
+
+label:has(input[type="checkbox"]):hover {
+  background: var(--gray-50);
+}
+
+label:has(input[type="checkbox"]:checked) {
+  color: var(--team-navy);
+  font-weight: 600;
+  background: rgba(10, 30, 61, 0.05);
+}
+
+/* ===== INLINE TEXT FIELDS ===== */
+input[type="text"][name*="_other"],
+input[type="text"][placeholder*="specify"] {
+  display: inline-block;
+  width: auto;
+  min-width: 200px;
+  max-width: 300px;
+  margin-left: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.9375rem;
+}
+
+/* ===== BR TAGS SPACING ===== */
+br {
+  display: block;
+  content: "";
+  margin-top: 0;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+button[type="submit"] {
+  width: 100%;
+  padding: var(--space-6) var(--space-8);
+  font-size: 1.125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--team-navy) 0%, var(--team-red) 100%);
+  border: 2px solid var(--team-blue);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-12);
+  transition: all var(--transition);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--team-light-blue);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===== VALIDATION STYLES ===== */
+input:invalid:not(:placeholder-shown):not(:focus),
+select:invalid:not(:focus),
+textarea:invalid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--error);
+  background: rgba(196, 30, 58, 0.05);
+}
+
+input:valid:not(:placeholder-shown):not(:focus),
+select:valid:not(:focus),
+textarea:valid:not(:placeholder-shown):not(:focus) {
+  border-color: var(--success);
+}
+
+/* ===== FOCUS VISIBLE ===== */
+*:focus-visible {
+  outline: 2px solid var(--team-blue);
+  outline-offset: 2px;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--team-navy);
+  border-radius: 6px;
+  border: 2px solid var(--gray-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--team-red);
+}
+
+/* ===== TABLET RESPONSIVE (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  body {
+    padding: var(--space-6) var(--space-4);
+  }
+
   form {
-    padding: 20px;
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .header {
+    padding: var(--space-8) var(--space-5);
   }
 
   .header img {
-    width: 90px;
+    max-width: 120px;
+  }
+
+  .header h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE (max 767px) ===== */
+@media (max-width: 767px) {
+  body {
+    padding: var(--space-4) var(--space-2);
+  }
+
+  form {
+    padding: var(--space-6) var(--space-4);
+    border-radius: var(--radius-xl);
+  }
+
+  .header {
+    padding: var(--space-6) var(--space-4);
+    margin-bottom: var(--space-8);
+    border-radius: var(--radius-xl);
+  }
+
+  .header img {
+    max-width: 100px;
+    margin-bottom: var(--space-4);
+  }
+
+  .header h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: var(--space-3);
+  }
+
+  .header p {
+    font-size: 0.9375rem;
+    letter-spacing: 0.5px;
+  }
+
+  form > label,
+  label {
+    font-size: 0.9375rem;
+    margin-top: var(--space-5);
+    padding-left: var(--space-4);
+  }
+
+  form > label::before {
+    width: 3px;
+    height: 16px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    padding: var(--space-3);
+    font-size: 0.9375rem;
+  }
+
+  /* Inline inputs become full width on mobile */
+  input[type="text"][name*="_other"],
+  input[type="text"][placeholder*="specify"] {
+    display: block;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    margin-left: 0;
+    margin-top: var(--space-2);
+  }
+
+  input[type="number"] {
+    max-width: 100%;
+  }
+
+  label:has(input[type="radio"]),
+  label:has(input[type="checkbox"]) {
+    display: flex;
+    padding: var(--space-3);
+    margin-right: 0;
+    margin-bottom: var(--space-2);
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+
+  button[type="submit"] {
+    padding: var(--space-5) var(--space-6);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-top: var(--space-8);
+  }
+
+  textarea {
+    min-height: 80px;
+  }
+}
+
+/* ===== SMALL MOBILE (max 480px) ===== */
+@media (max-width: 480px) {
+  .header img {
+    max-width: 80px;
+  }
+
+  .header h2 {
+    font-size: 1.25rem;
+  }
+
+  .header p {
+    font-size: 0.875rem;
+  }
+
+  form {
+    padding: var(--space-5) var(--space-3);
+  }
+
+  form > label,
+  label {
+    font-size: 0.875rem;
+  }
+
+  button[type="submit"] {
+    padding: var(--space-4) var(--space-5);
+    font-size: 0.9375rem;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body {
+    background: white;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .header {
+    border: 2px solid #000;
+    box-shadow: none;
+  }
+
+  form {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  button[type="submit"] {
+    display: none;
   }
 }
